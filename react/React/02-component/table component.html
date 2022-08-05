@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- prepare a container -->
+    <div id="test">
+
+    </div>
+    <div id = "hua"></div>
+</body>
+<!-- Introduce react core library-->
+<script src="../React-js/react.development.js" type="text/javascript"></script>
+<script src="../React-js/react-dom.development.js" type="text/javascript"></script>
+
+<script src="../React-js/babel.min.js" type="text/javascript"></script>
+
+<script type="text/babel">
+
+    // class NameForm extends React.Component {
+  
+    //     state = {value: ''};
+
+    //     handleChange = event => {
+    //         // Returns the element that triggered this event, that is, returns input
+    //         console.log(event.target);
+    //         this.setState({value: event.target.value});
+    //     }
+
+    //     handleSubmit = event => {
+    //         alert('Submitted name: ' + this.state.value);
+    //         event.preventDefault();
+    //     }
+
+    //     render() {
+    //         return (
+    //             <form onSubmit={this.handleSubmit}>
+    //                 <label>
+    //                 name:
+    //                 <input type="text" value={this.state.value} onChange={this.handleChange} />
+    //                 </label>
+    //                 <input type="submit" value="提交" />
+    //             </form>
+    //         );
+    //     }
+    // }
+    // class FlavorForm extends React.Component {
+    //     constructor(props) {
+    //         super(props);
+    //         this.state = {value: 'coconut'};
+
+    //         this.handleChange = this.handleChange.bind(this);
+    //         this.handleSubmit = this.handleSubmit.bind(this);
+    //     }
+
+    //     handleChange(event) {
+    //         this.setState({value: event.target.value});
+    //     }
+
+    //     handleSubmit(event) {
+    //         alert('your favorite flavor is: ' + this.state.value);
+    //         event.preventDefault();
+    //     }
+
+    //     render() {
+    //         return (
+    //         <form onSubmit={this.handleSubmit}>
+    //             <label>
+    //             Choose your favorite flavor:
+    //             <select value={this.state.value} onChange={this.handleChange}>
+    //                 <option value="grapefruit">A</option>
+    //                 <option value="lime">B</option>
+    //                 <option value="coconut">C</option>
+    //                 <option value="mango">D</option>
+    //             </select>
+    //             </label>
+    //             <input type="submit" value="submit" />
+    //         </form>
+    //         );
+    //     }
+    // }
+    class Reservation extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+            isGoing: true,
+            numberOfModels: 2
+            };
+
+            this.handleInputChange = this.handleInputChange.bind(this);
+        }
+
+        handleInputChange(event) {
+            const target = event.target;
+            console.log(target)
+            const value = target.type === 'checkbox' ? target.checked : target.value;
+            const name = target.name;
+            
+            console.log(name);
+            console.log(value);
+            this.setState({
+                [name]: value
+            });
+        }
+
+        render() {
+            return (
+            <form>
+                <label>
+                participate:
+                <input
+                    name="isGoing"
+                    type="checkbox"
+                    checked={this.state.isGoing}
+                    onChange={this.handleInputChange} />
+                </label>
+                <br />
+                <label>
+                number of models:
+                <input
+                    name="numberOfModels"
+                    type="number"
+                    value={this.state.numberOfModels}
+                    onChange={this.handleInputChange} />
+                </label>
+            </form>
+            );
+        }
+    }
+    //2.render component
+    ReactDOM.render(<Reservation />,document.getElementById("test"))
+    ReactDOM.render(<input value = "Machine Learning for SPDX code" readOnly/>,document.getElementById("hua"));
+    
+</script>
+
+
+
+</html>

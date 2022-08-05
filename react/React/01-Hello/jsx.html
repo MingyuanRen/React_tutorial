@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .qnx{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- prepare a container -->
+    <div id="test">
+        
+    </div>
+</body>
+<!-- Introduce react core library-->
+<script src="../React-js/react.development.js" type="text/javascript"></script>
+<script src="../React-js/react-dom.development.js" type="text/javascript"></script>
+
+<script src="../React-js/babel.min.js" type="text/javascript"></script>
+
+<!--use js to create virtual dom-->
+<script type="text/babel">
+        const MyId = "title";
+        const MyData = "Cyk";
+        // 1. Create a virtual DOM [js syntax is used here] React.createElement (tag, tag attribute, content)
+        const VDOM = (
+            <h1 id = {MyId.toLocaleUpperCase()}>
+                <span className = "qnx" style = {{fontSize:'50px'}}>Hello QNX</span>   
+                
+            </h1>
+        )
+        // 2.Rendering, if there are multiple renderings of the same container, the latter will overwrite the former
+        ReactDOM.render(VDOM,document.getElementById("test"));
+        
+        /*
+        JS expression: returns a value, which can be placed anywhere a value is needed a a+b demo(a) arr.map() function text(){}
+         JS statement: if(){} for(){} while(){} swith(){} does not return a value
+        */
+
+         //1. Define virtual DOM, cannot use ""
+         //2. Use {} when mixing JS expressions in tags
+         //3. The class name of the style specifies not to use class, use className
+         //4. Use style={{style:"value"}} for restrained styles
+         //5. There cannot be multiple root tags, only one follower tag
+         //6. The label must be closed
+         //7. If it starts with a lowercase letter, convert the tag to an element with the same name in html. If there is no element corresponding to the tag in html, an error will be reported
+         // If it starts with a capital letter, react will render the corresponding component, if not, an error will be reported
+</script>
+
+</html>

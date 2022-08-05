@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- prepare a container -->
+    <div id="test">
+
+    </div>
+    <div id = "hua"></div>
+</body>
+<!-- Introduce react core library-->
+<script src="../React-js/react.development.js" type="text/javascript"></script>
+<script src="../React-js/react-dom.development.js" type="text/javascript"></script>
+
+<script src="../React-js/babel.min.js" type="text/javascript"></script>
+
+
+<!-- Introduce react core library-->
+<script type="text/babel">
+        // 1.Create a class component [must extend React.Component]
+        class MyComponent extends React.Component{
+            render(){
+                //render is placed on the prototype object for use by instance objects
+                //render's this, the instance object of MyComponent [component instance object]
+                return <h1>This is a class component</h1>
+            }
+        }
+        
+        // 2. Rendering components
+        ReactDOM.render(<MyComponent />,document.getElementById("test"))
+
+       
+//Implementation process:
+        //1.React parses the component tag and finds the corresponding component
+        //2. It is found that the component is defined by the class, and then the new instance of the class is called, and the render method on the prototype is called through the instance
+        //3. Convert the virtual DOM returned by render into a real DOM, and then render it on the page
+
+
+        // complex component: stateful
+        // Simple component: stateless
+        //The state of the component stores the data state
+
+</script>
+
+
+
+</html>

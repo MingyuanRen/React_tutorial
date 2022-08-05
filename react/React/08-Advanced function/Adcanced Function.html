@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "div">
+
+    </div>
+
+</body>
+
+<script src="../React-js/react.development.js" type="text/javascript"></script>
+<script src="../React-js/react-dom.development.js" type="text/javascript"></script>
+
+<script src="../React-js/babel.min.js"></script>
+
+<script src="../React-js/prop-types.js"></script>
+
+<script type="text/babel">
+/*
+     Advanced functions:
+     1. If the parameter of the function is a function
+     2. If the function returns a function
+     Curriization of a function:
+     By continuing to return the function through the function call, the function encoding form that receives the parameters multiple times and is finally processed uniformly is realized.
+*/
+
+    class Login extends React.Component{
+
+        login = (event) =>{
+            event.preventDefault(); //Block form submission
+            console.log(this.name.value);
+            console.log(this.pwd.value);
+        }
+ 
+        state = {name:"",pwd:""};
+
+        saveType = (type) =>{
+            return (event) => {
+                this.setState({[type]:event.target.value});
+            }
+        }
+
+        
+        //Because the event must be a function, the returned function is also a function, which conforms to the specification
+        render() {
+            return (
+                <form action="http://www.qnx.com" >
+                    <input onChange = {this.saveType('name')} type = "text" name ="username"/>
+                    {/*It is also possible to call the callback function directly: just pass the data*/}
+                    UserName: <input onChange = {(event)=>{this.saveType('name',event)}} type = "text" name ="username"/>
+                    password<input onChange = {this.saveType('pwd')} type = "password" name ="password"/>
+                    <button>login</button>
+                </form>
+            )
+        }
+    }
+
+    ReactDOM.render(<Login />,document.getElementById("div"));
+</script>
+</html>

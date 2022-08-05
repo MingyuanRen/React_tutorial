@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <!-- prepare a container -->
+    <div id="test">
+        
+    </div>
+</body>
+<!-- When importing dependencies, you must follow these steps when importing-->
+<script src="../React-js/react.development.js" type="text/javascript"></script>
+<script src="../React-js/react-dom.development.js" type="text/javascript"></script>
+
+<script src="../React-js/babel.min.js"></script>
+<!--js is used here to create a virtual DOM-->
+<script type="text/babel">
+        //1.Create components
+        class St extends React.Component{
+            constructor(props){
+                super(props);
+                this.state = {isBest:true,win:"ss"};
+                // Find the dem of the prototype, create a function of dem1 according to the dem function, and assign the this of the instance object to the past
+                // this.dem1 = this.dem.bind(this);
+            }
+            //render will be called 1+n times [1 is called during initialization, n is called every time the state is modified]
+            render(){ //This This is also an instance object
+                //If you add dem(), you will put the callback value of the function in this place
+                // Adding this in this.dem is not a call, but just found the function dem, which is equivalent to a direct call when calling, not an instance object call
+                return <h1 onClick = {this.dem}>What is the best model{this.state.isBest?" YES":"NO"}</h1>    
+            }
+            //When calling dem through an instance of state, this is the strength object
+            //The method in the class has strict mode enabled by default, so this is undefined
+            dem = () =>{
+                const state =  this.state.isHot;
+                 //The properties in the state cannot be changed directly, and the API is required
+                // this.state.isBest = !isBest; wrong
+                //It must be modified using setState and this is a merge
+                this.setState({isBest:!state});
+            }
+        }
+        // 2.Rendering, if there are multiple renderings of the same container, the latter will overwrite the former
+        ReactDOM.render(<St />,document.getElementById("test"));
+        
+        // document.getElementById("title").addEventListener("click",()=>{
+        //     alert("4");
+        // })
+       
+        
+</script>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- prepare a container -->
+    <div id="test">
+
+    </div>
+    <div id = "hua"></div>
+</body>
+<!-- Introduce react core library-->
+<script src="../React-js/react.development.js" type="text/javascript"></script>
+<script src="../React-js/react-dom.development.js" type="text/javascript"></script>
+
+<script src="../React-js/babel.min.js" type="text/javascript"></script>
+
+
+<!-- Introduce react core library-->
+<script type="text/babel">
+        // 1.Create functional components
+        function Demo(){
+            console.log(this); //This this is undefined because strict mode is turned on after babel is compiled
+            return <h2>hello qnx</h2>
+        }
+        //Functional components can also add parameters
+        function Show(props){
+            return <h1>Hello {props.number}</h1>
+        }
+        //2.render component
+
+        ReactDOM.render(<Demo />,document.getElementById("test"));
+        ReactDOM.render(<Show number="10" />,document.getElementById("div"));
+// notes:
+         /*
+         1. The first letter of the component must be capitalized and have a return value
+         2. Must be <component name /> when rendering
+         */
+
+        //Implementation process:
+        //1.React parses the component tag and finds the corresponding component.
+        //2. It is found that the component is defined by a function, and then the function is called to convert the returned virtual DOM into a real DOM, and then render it on the page.
+
+         //In a class, the general method is placed on the prototype object for instance use
+         //This in the method mainly depends on who called him
+</script>
+
+
+
+</html>

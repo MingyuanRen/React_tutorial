@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- prepare a container -->
+    <div id="test">
+
+    </div>
+    <div id = "hua"></div>
+</body>
+<!-- Introduce react core library-->
+<script src="../React-js/react.development.js" type="text/javascript"></script>
+<script src="../React-js/react-dom.development.js" type="text/javascript"></script>
+
+<script src="../React-js/babel.min.js" type="text/javascript"></script>
+
+
+<!-- Introduce react core library-->
+<script type="text/babel">
+
+        //create component<li>
+        function GetLi(props){      
+            return <li>{props.value}</li>
+        };
+
+        // 1.Create a class component<ul>
+        class MyComponent extends React.Component{
+            render(){
+                console.log(this.props.arr);
+                let com = this.props.arr.map((item,index)=>
+                        <GetLi value={item} key = {index} />
+                    );
+                console.log(com);
+                return <ul>{com}</ul>
+            }
+        }
+        
+        let num = [1,2,3,4]
+        //2.reder componenet
+        ReactDOM.render(<MyComponent  arr={num}/>,document.getElementById("test"))
+
+    
+</script>
+
+
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- prepare a container -->
+    <div id="test">
+        
+    </div>
+</body>
+<!-- Introduce react core library-->
+<script src="../React-js/react.development.js" type="text/javascript"></script>
+<script src="../React-js/react-dom.development.js" type="text/javascript"></script>
+
+<script src="../React-js/babel.min.js" type="text/javascript"></script>
+
+
+<!--use js to create virtual dom-->
+<script type="text/babel">
+        const data =["1","2","3"];
+        // 1.create virtual dom
+        const VDOM = (
+            <div>
+                <h1>hhh</h1>
+                <ul>
+                    { //{} Only expressions can be placed in it
+                        // If rendering is a list, each row must have a key
+                        data.map((item,index)=>{
+                            return <li key = {index}>{item}</li>
+                        })
+                    }
+                </ul>    
+            </div>
+        )
+        // 2.Rendering, if there are multiple renderings of the same container, the latter will overwrite the former
+        ReactDOM.render(VDOM,document.getElementById("test"));
+        
+
+</script>
+
+</html>

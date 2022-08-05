@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="test">
+        
+    </div>
+</body>
+<script src="../React-js/react.development.js" type="text/javascript"></script>
+<script src="../React-js/react-dom.development.js" type="text/javascript"></script>
+
+<script src="../React-js/babel.min.js"></script>
+
+<script type="text/babel">
+       
+       class Father extends React.Component{
+            state = {du:""}
+            render(){
+                return (<form>
+                        <Hua value = {this.state.du}/>
+                        <Hua value = {this.state.du}/>
+                    </form>)
+            }
+       }
+        class Hua{
+            render(){
+                return <input 
+                    name="degree"
+                    type="text"
+                    onChange={this.handleInputChange}
+                    />
+            }
+        }
+        ReactDOM.render(<Father  />,document.getElementById("test"));
+        
+    
+</script>
+</html>

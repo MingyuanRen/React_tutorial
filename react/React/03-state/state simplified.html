@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <!-- prepare a container -->
+    <div id="test">
+        
+    </div>
+</body>
+<!-- When importing dependencies, you must follow these steps when importing-->
+<script src="../React-js/react.development.js" type="text/javascript"></script>
+<script src="../React-js/react-dom.development.js" type="text/javascript"></script>
+
+<script src="../React-js/babel.min.js"></script>
+<!--js is used here to create a virtual DOM-->
+<script type="text/babel">
+        //1.create componnent
+        class St extends React.Component{
+            //can be assigned directly
+            state = {isHot:true};
+            render(){ //This 'This' is also an instance object
+                return <h1 onClick = {()=>this.dem()}>Today's weather is very{this.state.isHot?"hot":"cold"}</h1>    
+            }
+            //Arrow function [custom method ---> use the form of assignment statement + arrow function]
+            dem = ()=>{
+                console.log(this);
+                const state =  this.state.isHot;
+                this.setState({isHot:!state});
+            }
+        }
+        ReactDOM.render(<St />,document.getElementById("test"));
+    
+        
+       
+        
+</script>
+
+</html>

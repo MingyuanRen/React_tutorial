@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <!-- prepare a container -->
+    <div id="test">
+        
+    </div>
+</body>
+<!-- When importing dependencies, you must follow these steps when importing-->
+<script src="../React-js/react.development.js" type="text/javascript"></script>
+<script src="../React-js/react-dom.development.js" type="text/javascript"></script>
+
+<script src="../React-js/babel.min.js"></script>
+<!--js is used here to create a virtual DOM-->
+<script type="text/babel">
+        //1. create component
+        class St extends React.Component{
+            //can be assigned directly
+            state = {isHot:10};
+            render(){ //This This is also an instance object
+                console.log(this.state)
+                return <h1 onClick = {this.dem}>Is it the best model{this.state.isHot?" yes":" no"}</h1>    
+            }
+            //Arrow function [custom method ---> use the form of assignment statement + arrow function]
+            dem = (e) =>{
+                console.log(e);
+                e.preventDefault();
+            }
+            // componentDidMount(){
+            //     document.getElementById("test").addEventListener("click",()=>{
+            //         this.setState({
+            //             isHot: this.state.isHot + 1
+            //         })
+                   
+            //         this.setState({
+            //             isHot: this.state.isHot + 1
+            //         })
+                    
+            //         this.setState({
+            //             isHot: this.state.isHot + 1
+            //         })
+            //     })
+            // }
+        }
+        ReactDOM.render(<St />,document.getElementById("test"));
+        
+</script>
+
+</html>
